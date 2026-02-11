@@ -45,7 +45,10 @@ class _SwitchLayoutPageState extends State<SwitchLayoutPage> {
           ),
         ],
       ),
-      body: Padding(padding: const EdgeInsets.all(12), child: isGrid ? _buildGridView() : _buildListView()),
+      body: Padding(
+        padding: const EdgeInsets.all(12),
+        child: isGrid ? _buildGridView() : _buildListView(),
+      ),
     );
   }
 
@@ -53,7 +56,12 @@ class _SwitchLayoutPageState extends State<SwitchLayoutPage> {
     return ListView.builder(
       itemCount: items.length,
       itemBuilder: (context, index) {
-        return Card(child: ListTile(leading: const Icon(Icons.label), title: Text(items[index])));
+        return Card(
+          child: ListTile(
+            leading: const Icon(Icons.label),
+            title: Text(items[index]),
+          ),
+        );
       },
     );
   }
@@ -61,15 +69,21 @@ class _SwitchLayoutPageState extends State<SwitchLayoutPage> {
   Widget _buildGridView() {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 12,
-        crossAxisSpacing: 12,
-        childAspectRatio: 1.2,
+        crossAxisCount: 2, //จำนวนคอลลัม
+        mainAxisSpacing: 12, //space btw box แนวตั้ง
+        crossAxisSpacing: 12, //space btw box แนวนอน
+        childAspectRatio: 1.2, //ขนาดbox(width/heigh)
       ),
+      //ถ้าเปิดคอมเม้นด้านล่าง จำนวนคอลลัมจะเพิ่มตามขนาดหน้าจอ ไม่ฟิกไว้ ตัวเลขคือขนาดwidth
       // gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(maxCrossAxisExtent: 300),
       itemCount: items.length,
       itemBuilder: (context, index) {
-        return Card(elevation: 2, child: Center(child: Text(items[index], style: const TextStyle(fontSize: 16))));
+        return Card(
+          elevation: 2,
+          child: Center(
+            child: Text(items[index], style: const TextStyle(fontSize: 16)),
+          ),
+        );
       },
     );
   }

@@ -32,9 +32,20 @@ class CatalogScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Catalog'),
-        actions: const [Icon(Icons.filter_list), SizedBox(width: 12), Icon(Icons.help_outline), SizedBox(width: 12)],
+        actions: const [
+          Icon(Icons.filter_list),
+          SizedBox(width: 12),
+          Icon(Icons.help_outline),
+          SizedBox(width: 12),
+        ],
       ),
-      body: ListView.builder(
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2, //จำนวนคอลลัม
+          mainAxisSpacing: 12, //space btw box แนวตั้ง
+          crossAxisSpacing: 12, //space btw box แนวนอน
+          childAspectRatio: 1.2, //ขนาดbox(width/heigh)
+        ),
         itemCount: images.length,
         itemBuilder: (context, index) {
           return AspectRatio(
@@ -53,9 +64,18 @@ class CatalogScreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 1,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.camera_alt_outlined), label: 'Quick capture'),
-          BottomNavigationBarItem(icon: Icon(Icons.image_outlined), label: 'All images'),
-          BottomNavigationBarItem(icon: Icon(Icons.cloud_upload_outlined), label: 'Bulk upload'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.camera_alt_outlined),
+            label: 'Quick capture',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.image_outlined),
+            label: 'All images',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.cloud_upload_outlined),
+            label: 'Bulk upload',
+          ),
         ],
       ),
     );
