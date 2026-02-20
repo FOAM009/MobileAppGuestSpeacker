@@ -42,8 +42,8 @@ class CatalogScreen extends StatelessWidget {
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, //จำนวนคอลลัม
-          mainAxisSpacing: 12, //space btw box แนวตั้ง
-          crossAxisSpacing: 12, //space btw box แนวนอน
+          mainAxisSpacing: 8, //space btw box แนวตั้ง
+          crossAxisSpacing: 8, //space btw box แนวนอน
           childAspectRatio: 1.2, //ขนาดbox(width/heigh)
         ),
         itemCount: images.length,

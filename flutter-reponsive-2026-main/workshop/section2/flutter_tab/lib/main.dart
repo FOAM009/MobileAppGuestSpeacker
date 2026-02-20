@@ -10,7 +10,10 @@ class FocusTraversalApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: const FocusDemoScreen());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const FocusDemoScreen(),
+    );
   }
 }
 
@@ -39,26 +42,36 @@ class FocusDemoScreen extends StatelessWidget {
       child: Column(
         children: [
           FocusTraversalOrder(
-            order: const NumericFocusOrder(2),
-            child: const TextField(decoration: InputDecoration(labelText: 'First Name')),
+            order: const NumericFocusOrder(
+              2,
+            ), //เวลากดTabมันจะเลื่อนตามเลขที่เราตั้ง
+            child: const TextField(
+              decoration: InputDecoration(labelText: 'First Name'),
+            ),
           ),
           const SizedBox(height: 16),
 
           FocusTraversalOrder(
             order: const NumericFocusOrder(3),
-            child: const TextField(decoration: InputDecoration(labelText: 'Last Name')),
+            child: const TextField(
+              decoration: InputDecoration(labelText: 'Last Name'),
+            ),
           ),
           const SizedBox(height: 24),
 
           FocusTraversalOrder(
             order: const NumericFocusOrder(1),
-            child: const TextField(decoration: InputDecoration(labelText: 'Email')),
+            child: const TextField(
+              decoration: InputDecoration(labelText: 'Email'),
+            ),
           ),
           const SizedBox(height: 16),
 
           FocusTraversalOrder(
             order: const NumericFocusOrder(4),
-            child: const TextField(decoration: InputDecoration(labelText: 'Password')),
+            child: const TextField(
+              decoration: InputDecoration(labelText: 'Password'),
+            ),
           ),
           const SizedBox(height: 16),
 
@@ -76,7 +89,10 @@ class FocusDemoScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Tab Traversal & Focus')),
       // body: Padding(padding: const EdgeInsets.all(24), child: buildTextFields()),
-      body: Padding(padding: const EdgeInsets.all(24), child: buildOrderTextFields()),
+      body: Padding(
+        padding: const EdgeInsets.all(24),
+        child: buildOrderTextFields(),
+      ),
     );
   }
 }
